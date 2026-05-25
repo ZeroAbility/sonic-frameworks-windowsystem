@@ -16,8 +16,8 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
-    - cmake: "KF6::WindowSystem"
-cmakename: KF6WindowSystem
+    - cmake: "SonicFrameworksWindowSystem"
+cmakename: SonicFrameworksWindowSystem
 
 public_lib: true
 group: Frameworks

@@ -47,7 +47,7 @@ set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprec
 set(kwindowsystem_version_header "${CMAKE_CURRENT_BINARY_DIR}/src/kwindowsystem_version.h")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KWINDOWSYSTEM
                         VERSION_HEADER "${kwindowsystem_version_header}"
-                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6WindowSystemConfigVersion.cmake"
+			PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/SonicFrameworksWindowSystemConfigVersion.cmake"
                         SOVERSION 6)
 
 # Dependencies
@@ -81,26 +81,26 @@ if (BUILD_TESTING)
 endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6WindowSystem")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/SonicFrameworksWindowSystem")
 
-configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF6WindowSystemConfig.cmake.in"
-                              "${CMAKE_CURRENT_BINARY_DIR}/KF6WindowSystemConfig.cmake"
+configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/SonicFrameworksWindowSystemConfig.cmake.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/SonicFrameworksWindowSystemConfig.cmake"
                               INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
                               )
 
-install(FILES  "${CMAKE_CURRENT_BINARY_DIR}/KF6WindowSystemConfig.cmake"
-               "${CMAKE_CURRENT_BINARY_DIR}/KF6WindowSystemConfigVersion.cmake"
+			      install(FILES  "${CMAKE_CURRENT_BINARY_DIR}/SonicFrameworksWindowSystemConfig.cmake"
+				      "${CMAKE_CURRENT_BINARY_DIR}/SonicFrameworksWindowSystemConfigVersion.cmake"
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel )
 
-install(EXPORT KF6WindowSystemTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF6WindowSystemTargets.cmake NAMESPACE KF6:: )
+install(EXPORT KF6WindowSystemTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE SonicFrameworksWindowSystemTargets.cmake NAMESPACE KF6:: )
 
 
 install(FILES ${kwindowsystem_version_header}
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KWindowSystem COMPONENT Devel )
 
 if (NOT WIN32)
-    ecm_generate_pkgconfig_file(BASE_NAME KF6WindowSystem
+	ecm_generate_pkgconfig_file(BASE_NAME SonicFrameworksWindowSystem
       INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KWindowSystem
       DEPS Qt6Gui
     INSTALL)
